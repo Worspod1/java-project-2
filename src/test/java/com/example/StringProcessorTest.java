@@ -45,4 +45,23 @@ class StringProcessorTest {
     void replaceDigits_mixedContent() {
         assertEquals("aодинbдваcтри", processor.replaceDigits("a1b2c3"));
     }
+    // Тесты для removeEverySecond
+    @Test
+    void removeEverySecond_basicCase() {
+        StringBuilder sb = new StringBuilder("123456");
+        processor.removeEverySecond(sb);
+        assertEquals("135", sb.toString());
+    }
+
+    @Test
+    void removeEverySecond_oddLength() {
+        StringBuilder sb = new StringBuilder("abcdefg");
+        processor.removeEverySecond(sb);
+        assertEquals("aceg", sb.toString());
+    }
+
+    @Test
+    void removeEverySecond_null_throwsException() {
+        assertThrows(IllegalArgumentException.class, () -> processor.removeEverySecond(null));
+    }
 }

@@ -36,4 +36,15 @@ public class StringProcessor {
         }
         return sb.toString();
     }
+    // Задание 4
+    public void removeEverySecond(StringBuilder sb) {
+        if (sb == null) {
+            throw new IllegalArgumentException("StringBuilder must not be null");
+        }
+        for (int i = sb.length() - 1; i >= 0; i--) {
+            if (i % 2 != 0) {
+                sb.deleteCharAt(i);
+            }
+        }
+    }
 }
